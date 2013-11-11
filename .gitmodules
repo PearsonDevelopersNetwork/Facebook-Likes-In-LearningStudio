@@ -1,0 +1,3 @@
+[submodule "code/landing-page/libraries"]
+	path = code/landing-page/libraries
+	url = https://github.com/PearsonDevelopersNetwork/Library-CMAC-PHP.git
