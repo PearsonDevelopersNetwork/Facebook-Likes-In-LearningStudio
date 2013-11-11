@@ -1,0 +1,3 @@
+[submodule "code/landing-page/libraries/CryptLib"]
+	path = code/landing-page/libraries/CryptLib
+	url = https://github.com/PearsonDevelopersNetwork/Library-CMAC-PHP.git
