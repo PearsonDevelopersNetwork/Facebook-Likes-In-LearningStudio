@@ -32,7 +32,7 @@
  * could show in a truncated form, for example). However some APIs will require 
  * an OAuth 2 token, which is outside the scope of this example. Refer to 
  * LearningStudio API documentation for the full scope of possibilities and requirements. 
-
+ */
  
 // Including some functions for making OAuth 1 calls. 
 include('libraries/functions.php'); 
@@ -68,10 +68,7 @@ $user_lastname = $user_info->users[0]->lastName;
 
 // At this point we have all the information we want to use for displaying information 
 // to Facebook and to the users who click through to the story from the news feed. 
- */
- $user_firstname = 'Jeof'; 
- $content_title = "The Fields of Dastardly"; 
- $course_title = "History 101"; 
+ 
 ?>
 <!DOCTYPE html> 
 <html lang="en-US">
