@@ -89,7 +89,7 @@ $user_lastname = $user_info->users[0]->lastName;
     
     <!-- Specify the image that Facebook should associate with this page when it appears in the news feed. 
          Their recommendations say it should be at least 600x315 but bigger is always better. Stick to a 1.91:1 aspect ratio --> 
-    <meta property="og:image"       content="http://<?=$_SERVER["HTTP_HOST"];?><?=str_replace('index.php','strata_promo.jpg',$_SERVER["REQUEST_URI"]);?>" />
+    <meta property="og:image"       content="http://<?=$_SERVER["HTTP_HOST"];?><?=str_replace('index.php','strata_promo.jpg',$_SERVER["PHP_SELF"]);?>" />
     
     <!-- Additional detail that Facebook may display on larger stories in the news feed. --> 
     <meta property="og:description" content="<?=$course_title;?> is one of the many courses offered in the fully online program at Strata University. <?=$user_firstname;?> likes this course, you could too! Find out more about our fully online programs." />
