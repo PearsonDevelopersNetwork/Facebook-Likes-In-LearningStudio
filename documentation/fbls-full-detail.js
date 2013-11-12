@@ -1,39 +1,20 @@
 /** 
  * FACEBOOK LIKES IN LEARNINGSTUDIO
- * This sample implementation demonstrates how to put Facebook Like buttons in 
- * a LearningStudio course, fostering and measuring student engagement while  
- * promoting the course and institution to closed communities. 
- * 
- * Developed by the Pearson Developers Network with ASU Online 
  *
  * @author    Jeof Oyster <jeof.oyster@pearson.com>
- * @customer  Brittney Cunningham <brittney.cunningham@asu.edu>
+ * @partner   Brittney Cunningham <brittney.cunningham@asu.edu>
  * @copyright 2013 Pearson 
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @version   1.0
+ * @date      2013-11-11
  * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * Please refer to the License file provided with this sample application 
+ * for the full terms and conditions, attributions, copyrights and license details.
  */
 
 
 /* THIS FILE 
- * This file is a blown-out version of fbls.js, intended to show how the 
+ * This file is a expanded version of fbls.js, intended to show how the 
  * widget works. Note that the actual fbls.js has been optimized and minified. 
  * This version is quite verbose and intended for instruction only. 
  */
@@ -46,7 +27,7 @@ window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jq
 $(document).ready(function(){
     
     // Define the variables that apply to your implementation
-    var Facebook_App_ID = '535504089872870'; // create this in Facebook
+    var Facebook_App_ID = '000000000000000'; // create this in Facebook
     var Landing_Page_URL = 'http://url.com'; // host this somewhere on a server you control
     
     // Set up vars we need in this script 

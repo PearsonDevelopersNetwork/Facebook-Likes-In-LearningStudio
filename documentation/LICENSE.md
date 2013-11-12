@@ -3,17 +3,19 @@ LICENSE
 
 FACEBOOK LIKES IN LEARNINGSTUDIO
 --------------------------------
+
 This sample implementation demonstrates how to put Facebook Like buttons in 
 a LearningStudio course, fostering and measuring student engagement while  
 promoting the course and institution to closed communities. 
 
-Developed by the Pearson Developers Network with ASU Online 
+Developed by the Pearson Developers Network with ASU Online.
 
-@author    Jeof Oyster <jeof.oyster@pearson.com>
-@partner   Brittney Cunningham <brittney.cunningham@asu.edu>
-@copyright 2013 Pearson 
-@license   http://www.opensource.org/licenses/mit-license.html  MIT License
-@version   1.0
+    @author    Jeof Oyster <jeof.oyster@pearson.com>
+    @partner   Brittney Cunningham <brittney.cunningham@asu.edu>
+    @copyright 2013 Pearson 
+    @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+    @version   1.0
+    @date      2013-11-11
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
