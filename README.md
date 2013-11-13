@@ -21,6 +21,9 @@ The problem has been that "liking" content on Facebook typically requires the co
 The User Experience
 -------------------
 
+> See documentation/ExperienceSample.pdf for a visual example.
+
+
 1. Student clicks the "Like" button that appears in any given page of content. 
 
 2. Rather than sending the content page to Facebook as the liked page, the intermediate landing page URL is sent instead. 
@@ -86,6 +89,7 @@ How It Works (Technology Used)
 License
 -------
 
+> See LICENSE.md for full details.   
+
 (c) 2013 Pearson.  MIT License  
 Developed by the Pearson Developer Network along with ASU Online.   
-See LICENSE.md for full details.   

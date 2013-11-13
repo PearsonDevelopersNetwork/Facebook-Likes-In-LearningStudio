@@ -6,7 +6,7 @@ Cloning the Repository
 
 When cloning the repository, use a recursive clone, i.e.: 
 
-    git clone --recursive {github address}
+    git clone --recursive https://github.com/PearsonDevelopersNetwork/Facebook-Likes-In-LearningStudio.git
 
 The intermediary "Landing Page" sample code uses a submodule for calculating the authentication signature in LearningStudio's API calls.  You may choose to implement your own logic for the intermediary page, and may or may not use the library then, but if you're going to use the PHP demo, grab all the modules in one go. 
 

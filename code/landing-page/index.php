@@ -45,9 +45,9 @@ $content_id = $_REQUEST['content_item'];
 
 // These are your institution's API Keys. They can be requested from your 
 // client services consultant at Pearson. Keep these secure and safe. 
-$oauth_application_id    = 'd23df54b-abb2-4dbb-b394-cdb10d4a35cf'; 
-$oauth_token_key_moniker = '04b11650-b3bb-41d6-91a6-c19936aaf4e5'; 
-$oauth_secret            = '8a72063be6d0409da86a5c239e39fd10'; 
+$oauth_application_id    = ''; 
+$oauth_token_key_moniker = ''; 
+$oauth_secret            = ''; 
 
 // Make a few API calls. Note this is a streamlined implementation of calling 
 // APIs for this example application. 
@@ -65,6 +65,9 @@ $user_lastname = $user_info->users[0]->lastName;
     // your course catalog system to display marketing descriptions about the course: 
     // $call_numbers = $course_info->courses[0]->callNumbers; 
     // $course_code = $course_info->courses[0]->displayCourseCode; 
+    // 
+    // This is also how you can use Google Analytics to do deep tracking on what courses
+    // bring the most inbound interest, etc. 
 
 
 // At this point we have all the information we want to use for displaying information 
@@ -81,7 +84,7 @@ $user_lastname = $user_info->users[0]->lastName;
     
     <!-- The fb:app_id is your Facebook App ID (also used when inserting the Like button in the course). 
          This is needed for tracking analytics properly. --> 
-    <meta property="fb:app_id"      content="535504089872870" />
+    <meta property="fb:app_id"      content="" />
     
     <!-- Customize the title of the page that will display in the news feed. The <meta> tag is the primary source for the news feed, 
          but occasionally Facebook may use the <title> tag as well, so you're encouraged to keep them relatively close in theme. --> 
@@ -89,7 +92,7 @@ $user_lastname = $user_info->users[0]->lastName;
     <title><?=$user_firstname;?> likes "<?=$content_title;?>" in the <?=$course_title;?> course at Strata University</title>
     
     <!-- Specify the image that Facebook should associate with this page when it appears in the news feed. 
-         Their recommendations say it should be at least 600x315 but bigger is always better. Stick to a 1.91:1 aspect ratio --> 
+         For Likes this is 90x90 --> 
     <meta property="og:image"       content="http://<?=$_SERVER["HTTP_HOST"];?><?=str_replace('index.php','strata_promo.jpg',$_SERVER["PHP_SELF"]);?>" />
     
     <!-- Additional detail that Facebook may display on larger stories in the news feed. --> 
