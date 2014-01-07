@@ -18,8 +18,6 @@ This example leverages Facebook's Like buttons to allow students to flag pages o
 The problem has been that "liking" content on Facebook typically requires the content to be publicly available. Facebook makes a request to the page to get information about it, including the name and a thumbnail to display in Facebook. Since course content is nonpublic, the answer is to provide Facebook a public intermediate page. Using LearningStudio APIs, this page can show Facebook's system the relevant information it needs for the student's Facebook wall, but then also displays marketing-style content to the student's friends who click on the link.
 
 
-<<<<<<< HEAD
-=======
 Requirements
 ------------
 
@@ -28,7 +26,6 @@ Requirements
 > You must have a Facebook Developers Account and have created an App.
 
 
->>>>>>> 55d50d875b9aceafd73a929ab534692b1f6eacf7
 The User Experience
 -------------------
 
@@ -50,13 +47,6 @@ The User Experience
 5. Pages that are 'liked' will appear in the related Facebook application's analytics system, allowing the instructional designer or teacher the option to see which content or courses are the most popular. 
 
 
-<<<<<<< HEAD
-Implementation
---------------
-
-> See INSTALL.md Guide for more details.
-
-=======
 Implementation & Getting Started
 --------------------------------
 
@@ -64,7 +54,6 @@ Implementation & Getting Started
 
 *Important: You need to use Git to download the whole library. If you don't have or know how to use Git, please ask for help at pdn.pearson.com*
 
->>>>>>> 55d50d875b9aceafd73a929ab534692b1f6eacf7
 1. The institution or instructional designer should create a Facebook application the Facebook Developers Portal. The Application ID is required when implementing the Like button in courses. 
 
 2. The institution will need to design and implement the marketing copy for the landing page. The sample included here demonstrates some possibilities. This file should be hosted in a publicly accessible place, and the URL will be required when implementing the Like button in courses. 
@@ -118,9 +107,5 @@ License
 
 > See LICENSE.md for full details.   
 
-<<<<<<< HEAD
-(c) 2013 Pearson.  MIT License  
-=======
 (c) 2014 Pearson.  MIT License  
->>>>>>> 55d50d875b9aceafd73a929ab534692b1f6eacf7
 Developed by the Pearson Developer Network along with ASU Online.   
