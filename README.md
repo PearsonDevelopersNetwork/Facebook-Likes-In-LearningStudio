@@ -86,6 +86,12 @@ How It Works (Technology Used)
  8. The page content of the intermediate page is customized to the course, content and user IDs. Using the LearningStudio APIs, the page can display the name of the original student along with a preview of the course or marketing copy about the institution. 
 
 
+Security & Privacy
+------------------
+
+As of version 1.1, the solution will create an encrypted hash of the user ID, course ID, and content item ID that is sent to the landing page. The landing page can decrypt this hash to get the information. This isn't inherently secure, because JavaScript-based encryption never truly can be; therefore this encryption is technically hackable. But it does offer security/privacy by obfuscation, preventing raw IDs from being in the wild on Facebook. Feel free to discuss this issue with the API Support team, if needed, but use of this tool is at your own risk. 
+
+
 License
 -------
 

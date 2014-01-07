@@ -14,8 +14,8 @@ Developed by the Pearson Developers Network with ASU Online.
     @partner   Brittney Cunningham <brittney.cunningham@asu.edu>
     @copyright 2013 Pearson 
     @license   http://www.opensource.org/licenses/mit-license.html  MIT License
-    @version   1.0
-    @date      2013-11-11
+    @version   1.1
+    @date      2014-01-07
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -34,3 +34,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+USE AT YOUR OWN RISK.
