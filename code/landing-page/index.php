@@ -45,13 +45,13 @@ include('libraries/functions.php');
 // Enter your Facebook Application ID. Note, this MUST match the one you use 
 // in the JavaScript widget in LearningStudio. 
 
-$FacebookAppID = '535504089872870'; 
+$FacebookAppID = ''; 
 
 // These are your institution's API Keys. They can be requested from your 
 // client services consultant at Pearson. Keep these secure and safe. 
-$oauth_application_id    = 'd23df54b-abb2-4dbb-b394-cdb10d4a35cf'; 
-$oauth_token_key_moniker = '04b11650-b3bb-41d6-91a6-c19936aaf4e5'; 
-$oauth_secret            = '8a72063be6d0409da86a5c239e39fd10'; 
+$oauth_application_id    = ''; 
+$oauth_token_key_moniker = ''; 
+$oauth_secret            = ''; 
 
 
 // Gather the parameters sent to this page when the Like button was clicked. 
