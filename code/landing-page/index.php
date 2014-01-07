@@ -6,8 +6,8 @@
  * @partner   Brittney Cunningham <brittney.cunningham@asu.edu>
  * @copyright 2013 Pearson 
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version   1.1
- * @date      2014-01-06
+ * @version   1.0
+ * @date      2013-11-11
  * 
  * Please refer to the License file provided with this sample application 
  * for the full terms and conditions, attributions, copyrights and license details. 
@@ -34,34 +34,20 @@
  * an OAuth 2 token, which is outside the scope of this example. Refer to 
  * LearningStudio API documentation for the full scope of possibilities and requirements. 
  */
-
-// Uncomment these for debugging
-// error_reporting(E_ALL);
-// ini_set('display_errors', '1');
-
+ 
 // Including some functions for making OAuth 1 calls. 
 include('libraries/functions.php'); 
 
-// Enter your Facebook Application ID. Note, this MUST match the one you use 
-// in the JavaScript widget in LearningStudio. 
-
-$FacebookAppID = '535504089872870'; 
+// Gather the parameters sent to this page when the Like button was clicked. 
+$course_id  = $_REQUEST['course'];
+$user_id    = $_REQUEST['user'];
+$content_id = $_REQUEST['content_item'];
 
 // These are your institution's API Keys. They can be requested from your 
 // client services consultant at Pearson. Keep these secure and safe. 
-$oauth_application_id    = 'd23df54b-abb2-4dbb-b394-cdb10d4a35cf'; 
-$oauth_token_key_moniker = '04b11650-b3bb-41d6-91a6-c19936aaf4e5'; 
-$oauth_secret            = '8a72063be6d0409da86a5c239e39fd10'; 
-
-
-// Gather the parameters sent to this page when the Like button was clicked. 
-// These values are an encrypted JSON object, so we decrypt them first. 
-
-$Info = json_decode(rc4decrypt($FacebookAppID,base64_decode(rawurldecode(urlencode($_REQUEST['info']))))); 
-$course_id  = $Info->course;
-$user_id    = $Info->user;
-$content_id = $Info->content_item;
-
+$oauth_application_id    = ''; 
+$oauth_token_key_moniker = ''; 
+$oauth_secret            = ''; 
 
 // Make a few API calls. Note this is a streamlined implementation of calling 
 // APIs for this example application. 
@@ -98,7 +84,7 @@ $user_lastname = $user_info->users[0]->lastName;
     
     <!-- The fb:app_id is your Facebook App ID (also used when inserting the Like button in the course). 
          This is needed for tracking analytics properly. --> 
-    <meta property="fb:app_id"      content="<?=$FacebookAppID;?>" />
+    <meta property="fb:app_id"      content="" />
     
     <!-- Customize the title of the page that will display in the news feed. The <meta> tag is the primary source for the news feed, 
          but occasionally Facebook may use the <title> tag as well, so you're encouraged to keep them relatively close in theme. --> 

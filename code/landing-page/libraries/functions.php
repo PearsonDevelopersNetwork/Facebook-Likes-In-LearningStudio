@@ -45,8 +45,6 @@ require_once 'libraries/CryptLib/lib/CryptLib/bootstrap.php';
 function doLearningStudioGET($api_route){ 
     global $oauth_application_id, $oauth_token_key_moniker, $oauth_secret; 
     
-    $api_hostname = 'https://m-api.ecollege.com'; 
-    
     //Prep OAuth 1.0a Signature
     $oAuthVariables = array(); 
     $oAuthVariables['application_id'] = $oauth_application_id; 
@@ -55,16 +53,10 @@ function doLearningStudioGET($api_route){
     $oAuthVariables['oauth_signature_method'] = 'CMAC-AES';
     $oAuthVariables['oauth_timestamp'] = time();
 
-    $signable_string='GET'.'&'.urlencode(parse_url($api_route,PHP_URL_PATH)).'&'; 
-    
-    $StringParts = $oAuthVariables; 
-    parse_str(parse_url($api_route,PHP_URL_QUERY), $query_array);	
-    $StringParts = array_merge($StringParts,$query_array); 
-    ksort($StringParts); 
-    
+    ksort($oAuthVariables); 
     $encodable = array(); 
-    foreach($StringParts as $key=>$value) $encodable[] = $key.'='.$value;
-    $signable_string.=urlencode(implode('&',$encodable)); 
+    foreach($oAuthVariables as $key=>$value) $encodable[] = $key.'='.$value;
+    $signable_string.='GET'.'&'.urlencode($api_route).'&'.urlencode(implode('&',$encodable)); 
 
     $CMACEngine = new CryptLib\MAC\Implementation\CMAC;
     $packed_string = ''; 
@@ -72,19 +64,16 @@ function doLearningStudioGET($api_route){
     for($i=0; $i<$stringlength; $i++) $packed_string .= pack("c", ord(substr($signable_string, $i, 1))); 
     $signature = base64_encode($CMACEngine->generate($packed_string,$oauth_secret));
 
-    $request_url_parts = parse_url($api_hostname.$api_route); 
-    $header_vars = array('realm'=>$request_url_parts['scheme'].'://'.$request_url_parts['host'].$request_url_parts['path']); 
-    $header_vars = array_merge($header_vars,$oAuthVariables); 
-    $header_vars['oauth_signature'] = $signature; 
+    $header_vars = array_merge(array('realm'=>$request_url),$oAuthVariables,array('oauth_signature'=>$signature));  
     $header_parts = array(); 
     foreach($header_vars as $k=>$v){ 
     	$v = ($k=='realm')?$v:urlencode($v); 
     	$header_parts[] = $k.'="'.$v.'"'; 
     } 
-        
+    
     // Execute Signed Request
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $api_hostname.$api_route);
+    curl_setopt($ch, CURLOPT_URL, 'https://m-api.ecollege.com'.$api_route);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array("X-Authorization: OAuth ".implode(',',$header_parts))); 
@@ -101,33 +90,3 @@ function doLearningStudioGET($api_route){
     }
 } 
 
-
-// This function decrypts an rc4-encoded string. The JavaScript 
-// front-encrypts the course, user and content IDs into a hash so that 
-// plain text IDs aren't obvious to everyday Facebook users. 
-
-function rc4decrypt($key, $str) {
-	$s = array();
-	for ($i = 0; $i < 256; $i++) {
-		$s[$i] = $i;
-	}
-	$j = 0;
-	for ($i = 0; $i < 256; $i++) {
-		$j = ($j + $s[$i] + ord($key[$i % strlen($key)])) % 256;
-		$x = $s[$i];
-		$s[$i] = $s[$j];
-		$s[$j] = $x;
-	}
-	$i = 0;
-	$j = 0;
-	$res = '';
-	for ($y = 0; $y < strlen($str); $y++) {
-		$i = ($i + 1) % 256;
-		$j = ($j + $s[$i]) % 256;
-		$x = $s[$i];
-		$s[$i] = $s[$j];
-		$s[$j] = $x;
-		$res .= $str[$y] ^ chr($s[($s[$i] + $s[$j]) % 256]);
-	}
-	return $res;
-}

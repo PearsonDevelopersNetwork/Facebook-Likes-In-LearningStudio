@@ -3,10 +3,10 @@
  *
  * @author    Jeof Oyster <jeof.oyster@pearson.com>
  * @partner   Brittney Cunningham <brittney.cunningham@asu.edu>
- * @copyright 2014 Pearson 
+ * @copyright 2013 Pearson 
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version   1.1
- * @date      2014-01-06
+ * @version   1.0
+ * @date      2013-11-11
  * 
  * Please refer to the License file provided with this sample application 
  * for the full terms and conditions, attributions, copyrights and license details.
@@ -50,10 +50,6 @@ $(document).ready(function(){
       } 
       return query_string;
     }();
-
-	//hashing function for hiding the IDs from the average Facebook User. 
-	function rc4(e,t){var n=[],r=0,i,s="";for(var o=0;o<256;o++){n[o]=o}for(o=0;o<256;o++){r=(r+n[o]+e.charCodeAt(o%e.length))%256;i=n[o];n[o]=n[r];n[r]=i}o=0;r=0;for(var u=0;u<t.length;u++){o=(o+1)%256;r=(r+n[o])%256;i=n[o];n[o]=n[r];n[r]=i;s+=String.fromCharCode(t.charCodeAt(u)^n[(n[o]+n[r])%256])}var a="";var f="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";var l,c,h,p,d,v,m;var o=0;while(o<s.length){l=s.charCodeAt(o++);c=s.charCodeAt(o++);h=s.charCodeAt(o++);p=l>>2;d=(l&3)<<4|c>>4;v=(c&15)<<2|h>>6;m=h&63;if(isNaN(c)){v=m=64}else if(isNaN(h)){m=64}a=a+f.charAt(p)+f.charAt(d)+f.charAt(v)+f.charAt(m)}return a}
-
     
     // Start the process by sending the asynchronous requests for User and Course information.
     $.getJSON("http://dynamiccoursedata.next.ecollege.com/userinfo/json.ed?callback=?",receiveAsynchInfo); 
@@ -84,20 +80,14 @@ $(document).ready(function(){
             // Assemble the Content Item ID that will be used in the Landing Page. Note that in order to use the ID with 
             // the LearningStudio REST APIs, the ID that is used in the LearningStudio UI needs to be prepended with either 
             // 100 or 200 depending on whether the content item is a normal item or a unit item (respectively). 
-            var contentItemId = ((QueryString.courseItemType=='CourseContentItem')?'100':'200')+QueryString.courseItemSubId;
+            var contentItemId = ((QueryString.courseItemType=='CourseContentItem')?'100':'200')+q.courseItemSubId;
             
-			// Assemble the course, user and content identifiers into a JSON object that our landing page can use
-			var contentInfo = '{"course":'+courseId+',"user":'+userId+',"content_item":'+contentItemId+'}'; 
-			
-			// Hash the content info so that we don't post plaintext IDs everywhere. This is decrypted by the landing page.
-			var hashedContentInfo = rc4(Facebook_App_ID,contentInfo); 
-
             // Create the Landing Page URL, appending the course, user and content item IDs the APIs will need. 
-            var AssembledLandingPageURL = Landing_Page_URL+((Landing_Page_URL.indexOf('?')<0)?'?':'&')+'info='+hashedContentInfo; 
+            var AssembledLandingPageURL = Landing_Page_URL+((Landing_Page_URL.indexOf('?')<0)?'?':'&')+'course='+courseId+'&user='+userId+'&content_item='+contentItemId; 
 
             // Assemble the URL for the Facebook button, escaping the AssembledLandingPageURL
             var FacebookLikeButtonURL = '//www.facebook.com/plugins/like.php?href='+escape(AssembledLandingPageURL)+'&width=50&layout=button&action=like&show_faces=false&share=false&height=35&appId='+Facebook_App_ID;
-
+            
             // Render the FB button anywhere we find an IFRAME with the class "fb-like-button"
             $('iframe.fb-like-button').attr('src', FacebookLikeButtonURL)
                                       .attr('allowTransparency','true')
